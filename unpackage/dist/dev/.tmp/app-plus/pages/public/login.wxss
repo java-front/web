@@ -1,0 +1,69 @@
+
+.content{
+		background: $page-color-base;
+		padding-top: 96rpx;
+}
+.logo-floor{
+	width: 100%;
+	height: auto;
+	float: left;
+}
+.logo-floor .logo{
+	width: 120rpx;
+	height: 120rpx;
+	margin: 0 auto;
+}
+.logo-img{
+	width: 120rpx;
+	height: 120rpx;
+	border-radius:50%
+}
+.input-content{
+	margin-top: 20rpx;
+	float: left;
+	width: 100%;
+}
+.input-content .input-item{
+	float: left;
+	width: 100%;
+	margin-top: 80rpx;
+	margin-left: 10rpx;
+	margin-right: 10rpx;
+	border-bottom: 1px solid #FFAA0E;
+}
+.input-item .input_{
+	float: left;
+	width: 93%;
+}
+.input-item .input-password{
+	float: left;
+	width: 73%;
+}
+.input-item .input-btn{
+	float: right;
+	width: 15rpx;
+	margin-right: 5rpx;
+	font-size: 10rpx;
+}
+.input-item .input-pas-btn{
+	float: left;
+	width: 22rpx;
+	margin-right: 8rpx;
+}
+.input-item .pas-wjmm{
+	float: right;
+	width: 170rpx;
+	background-color: #36CB59;
+}
+.inpt {
+  padding-left: 20rpx;
+  border: none 0;
+  outline: medium;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-tap-highlight-color: transparent;
+}
+	
+
