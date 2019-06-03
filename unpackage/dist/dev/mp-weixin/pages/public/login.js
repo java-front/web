@@ -145,8 +145,6 @@ var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.j
   },
   onLoad: function onLoad(options) {
 
-
-
   },
   methods: _objectSpread({},
   (0, _vuex.mapMutations)(['login']), {
@@ -186,27 +184,44 @@ var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.j
     },
     toLogin: function () {var _toLogin = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var result;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (!
                 this.isActive) {_context.next = 4;break;}
-                this.logining = true;_context.next = 5;break;case 4:return _context.abrupt("return");case 5:_context.next = 7;return (
+                this.logining = true;_context.next = 5;break;case 4:return _context.abrupt("return");case 5:
 
 
 
+                /* 数据验证模块
+                                                                                                             if(!this.$api.match({
+                                                                                                             	mobile,
+                                                                                                             	password
+                                                                                                             })){
+                                                                                                             	this.logining = false;
+                                                                                                             	return;
+                                                                                                             }
+                                                                                                             */
+                //发送get请求
+                uni.request({
+                  url: "http://192.168.1.4:8080/web/api/userinfo/login",
+                  method: "GET",
+                  data: { userName: this.user.account, password: this.user.password },
+                  success: function success(res) {
+                    console.log(res);
+                  },
+                  fail: function fail() {
 
+                  } });
 
-
-
-
-
-
-
-
-                  this.$api.json('userInfo'));case 7:result = _context.sent;
+                /*                this.$http.get('',{params : {}}).then(function(res){
+                                            console.log(res); 
+                                        },function(){
+                                            console.log('请求失败处理');
+                                        }); */_context.next = 8;return (
+                  this.$api.json('userInfo'));case 8:result = _context.sent;
                 if (result.status === 1) {
                   this.login(result.data);
                   uni.navigateBack();
                 } else {
                   this.$api.msg(result.msg);
                   this.logining = false;
-                }case 9:case "end":return _context.stop();}}}, _callee, this);}));function toLogin() {return _toLogin.apply(this, arguments);}return toLogin;}() }) };exports.default = _default;
+                }case 10:case "end":return _context.stop();}}}, _callee, this);}));function toLogin() {return _toLogin.apply(this, arguments);}return toLogin;}() }) };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
 
 /***/ }),

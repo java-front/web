@@ -98,41 +98,114 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
+
+
 {
   data: function data() {
     return {
       headerPosition: "fixed",
-      headerTop: "0px" };
+      headerTop: "0px",
+      accountBtnSee: false,
+      passBtnSee: false,
+      user: {
+        account: "",
+        password: "" },
+
+      isActive: false };
 
   },
   onLoad: function onLoad(options) {
 
+  },
+  methods: _objectSpread({},
+  (0, _vuex.mapMutations)(['login']), {
+    inputChange: function inputChange(e) {
+      var val = e.detail.value;
+      if (typeof val != "undefined" && val != "") {
+        var id = e.currentTarget.id;
+        if ("account" == id) {
+          this.accountBtnSee = true;
+        } else {
+          this.passBtnSee = true;
+        }
+        //登录按钮开关
+        if (this.user.account != "" && this.user.password != "") {
+          this.isActive = true;
+        } else {
+          this.isActive = false;
+        }
+      } else {
+        this.accountBtnSee = false;
+        this.passBtnSee = false;
+        this.isActive = false;
+      }
+    },
+    clearInput: function clearInput(e) {
+      var id = e.currentTarget.id;
+      if (typeof id != "undefined" && id != "") {
+        if ("accountClear" == id) {
+          this.user.account = "";
+          this.accountBtnSee = false;
+        } else {
+          this.user.password = "";
+          this.passBtnSee = false;
+        }
+        this.isActive = false;
+      }
+    },
+    toLogin: function () {var _toLogin = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var result;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (!
+                this.isActive) {_context.next = 4;break;}
+                this.logining = true;_context.next = 5;break;case 4:return _context.abrupt("return");case 5:_context.next = 7;return (
 
 
-  } };exports.default = _default;
+
+
+
+
+
+
+
+
+
+
+                  this.$api.json('userInfo'));case 7:result = _context.sent;
+                if (result.status === 1) {
+                  this.login(result.data);
+                  uni.navigateBack();
+                } else {
+                  this.$api.msg(result.msg);
+                  this.logining = false;
+                }case 9:case "end":return _context.stop();}}}, _callee, this);}));function toLogin() {return _toLogin.apply(this, arguments);}return toLogin;}() }) };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
 
 /***/ }),
 

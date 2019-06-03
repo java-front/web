@@ -44,9 +44,7 @@
 			}
 		},
 		onLoad(options){
-			// #ifdef H5
-			this.headerTop = document.getElementsByTagName('uni-page-head')[0].offsetHeight+'px';
-			// #endif
+			
 		},
 		methods:{
 			...mapMutations(['login']),
@@ -99,6 +97,23 @@
 					return;
 				}
 				*/
+			   //发送get请求
+			   uni.request({
+			   	   url:"http://192.168.1.4:8080/web/api/userinfo/login",
+				   method:"GET",
+				   data:{userName:this.user.account,password:this.user.password},
+				   success: res => {
+				   	 console.log(res);
+				   },
+				   fail: () => {
+				   	
+				   }
+			   });
+/*                this.$http.get('',{params : {}}).then(function(res){
+                    console.log(res); 
+                },function(){
+                    console.log('请求失败处理');
+                }); */
 				const result = await this.$api.json('userInfo');
 				if(result.status === 1){
 					this.login(result.data);
@@ -164,14 +179,14 @@
 }
 .input-item .input-pas-btn{
 	float: right;
-	width: 60upx;
+	padding-right: 25upx;
 	text-align: center;
 }
 .input-item .pas-wjmm{
 	float: right;
-	width: 170upx;
-	font-size: 26upx;
+	font-size: 28upx;
 	text-align: right;
+	padding-top: 8upx;
 }
 
 .inpt {

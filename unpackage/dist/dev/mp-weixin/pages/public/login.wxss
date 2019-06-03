@@ -74,14 +74,14 @@
 }
 .input-item .input-pas-btn{
 	float: right;
-	width: 60rpx;
+	padding-right: 25rpx;
 	text-align: center;
 }
 .input-item .pas-wjmm{
 	float: right;
-	width: 170rpx;
-	font-size: 26rpx;
+	font-size: 28rpx;
 	text-align: right;
+	padding-top: 8rpx;
 }
 .inpt {
   padding-left: 20rpx;
